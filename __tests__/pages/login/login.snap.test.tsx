@@ -7,9 +7,9 @@ import React from 'react';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
-import LoginView from '../view';
+import LoginView from '../../../src/pages/login/view';
 
-jest.mock('../view.model', () => {
+jest.mock('../../../src/pages/login/view.model', () => {
   const fnLoginViewModel = jest.fn();
 
   fnLoginViewModel.mockImplementation(() => ({
@@ -23,7 +23,7 @@ jest.mock('../view.model', () => {
   return fnLoginViewModel;
 });
 
-import useLoginViewModel from '../view.model';
+import useLoginViewModel from '../../../src/pages/login/view.model';
 
 it('renders correctly', () => {
   const {toJSON} = renderer.create(<LoginView />);
