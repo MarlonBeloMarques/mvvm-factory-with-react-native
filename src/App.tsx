@@ -1,8 +1,8 @@
 import React from 'react';
-import LoginView from './pages/login/view';
+import LoginFactory from './helpers/factories/login/view.factory';
 
 const App: React.FC = () => {
-  return <LoginView />;
+  return <LoginFactory />;
 };
 
 export default App;

@@ -26,7 +26,9 @@ jest.mock('../../../src/pages/login/view.model', () => {
 import useLoginViewModel from '../../../src/pages/login/view.model';
 
 it('renders correctly', () => {
-  const {toJSON} = renderer.create(<LoginView />);
+  const {toJSON} = renderer.create(
+    <LoginView loginViewModel={useLoginViewModel()} />,
+  );
 
   expect(toJSON()).toMatchSnapshot();
 });
@@ -40,7 +42,9 @@ it('renders correctly with email', () => {
     isLoading: false,
     onSubmit: jest.fn(),
   }));
-  const tree = renderer.create(<LoginView />).toJSON();
+  const tree = renderer
+    .create(<LoginView loginViewModel={useLoginViewModel()} />)
+    .toJSON();
   expect(tree).toMatchSnapshot();
 });
 
@@ -53,7 +57,9 @@ it('renders correctly with password', () => {
     isLoading: false,
     onSubmit: jest.fn(),
   }));
-  const tree = renderer.create(<LoginView />).toJSON();
+  const tree = renderer
+    .create(<LoginView loginViewModel={useLoginViewModel()} />)
+    .toJSON();
   expect(tree).toMatchSnapshot();
 });
 
@@ -66,7 +72,9 @@ it('renders correctly with email and password', () => {
     isLoading: false,
     onSubmit: jest.fn(),
   }));
-  const tree = renderer.create(<LoginView />).toJSON();
+  const tree = renderer
+    .create(<LoginView loginViewModel={useLoginViewModel()} />)
+    .toJSON();
   expect(tree).toMatchSnapshot();
 });
 
@@ -79,6 +87,8 @@ it('renders correctly while loading', () => {
     isLoading: true,
     onSubmit: jest.fn(),
   }));
-  const tree = renderer.create(<LoginView />).toJSON();
+  const tree = renderer
+    .create(<LoginView loginViewModel={useLoginViewModel()} />)
+    .toJSON();
   expect(tree).toMatchSnapshot();
 });

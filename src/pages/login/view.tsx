@@ -7,12 +7,15 @@ import {
   TextInput,
   View,
 } from 'react-native';
-import useLoginViewModel from './view.model';
+import {LoginViewModel} from './models';
 
-const LoginView: React.FC = () => {
+type Props = {
+  loginViewModel: LoginViewModel;
+};
+
+const LoginView: React.FC<Props> = ({loginViewModel}) => {
   const {email, password, setEmail, setPassword, isLoading, onSubmit} =
-    useLoginViewModel();
-
+    loginViewModel;
   console.log({email, password});
 
   return (
